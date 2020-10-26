@@ -1,0 +1,63 @@
+.emptyContainer {
+    background-color: rgba(0,0,0,0);
+    height: 16%;
+    margin-top: 3px;
+}
+
+.container {
+    background-color: #35454F;
+    height: 16%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3px;
+    padding-left: 2px;
+    padding-right: 2px;
+    line-height: .5em;
+}
+
+.nameContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2vh;
+    padding-right: 2vh;
+}
+
+.box {
+    background-color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 85%;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1.5px solid black;
+    font-size: 5.5vh;
+    font-weight: bold;
+}
+
+.header {
+    background-color: #35454F;
+    height: 4%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 3px;
+}
+
+.headerBox {
+    color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 85%;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh;
+    font-weight: normal;
+}

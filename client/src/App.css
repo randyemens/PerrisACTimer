@@ -1,0 +1,45 @@
+#root {
+  height: 105vh;
+  width: 130vh;
+}
+.App {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  background-color: black;
+}
+
+.AircraftListContainer {
+  height: 75%;
+  background-image: url("./img/SkydivePerris.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.FooterContainer {
+  height: 25%;
+  display: flex;
+}
+
+.TimeContainer {
+  height: 100%;
+  width: 35%;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.WeatherContainer {
+  height: 100%;
+  width: 65%;
+  background-color: rgba(0,0,0,0);
+  color: white;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  font-size: 5vh;
+}
