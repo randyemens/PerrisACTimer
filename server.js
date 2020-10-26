@@ -1,7 +1,6 @@
 const express = require('express')
 const app = express()
 const http = require('http').createServer(app);
-const port = 5000
 const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 require('body-parser-xml')(bodyParser);
@@ -31,5 +30,5 @@ app.post('/receive-xml', function(req, res, next) {
   io.emit('update-flights', testObject);
   res.send(testObject);
 });
-
+const port = process.env.PORT || 5000;
 http.listen(port, () => console.log(`Server up and running on port ${port} ! Sockets ver.`));
