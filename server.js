@@ -15,10 +15,20 @@ app.use(bodyParser.xml({
 
 var testObject = {}
 
-app.get('/flight-info', function(req, res, next) {
+// Serve static assets in production
+if (process.env.NODE_ENV === 'production') {
+  //Set static folder
+  app.use(express.static('client/build'));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+  });
+}
+
+app.get('/api/flight-info', function(req, res, next) {
   res.send(testObject);
 });
-app.post('/receive-xml', function(req, res, next) {
+app.post('/api/receive-xml', function(req, res, next) {
   testObject = req.body;
   if (testObject.ManifestPost &&
       testObject.ManifestPost.Aircraft && 
