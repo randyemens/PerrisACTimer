@@ -39,6 +39,21 @@
     font-weight: bold;
 }
 
+.timer {
+    background-color: white;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 85%;
+    margin-left: 2px;
+    margin-right: 2px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    border: 1.5px solid black;
+    font-weight: bold;
+}
+
 .header {
     background-color: #35454F;
     height: 4%;

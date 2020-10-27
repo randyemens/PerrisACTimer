@@ -59,9 +59,9 @@ class Aircraft extends Component {
             CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#FFFF00"}} className={styles.box}>{aircraft.CallState}</span>;
         else if (aircraft.CallState == "Now")
             CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#7CFC00"}} className={styles.box}>{aircraft.CallState}</span>;
-        var Timer = <span style={{flex: 10, fontSize: "7vh"}} className={styles.box}>{aircraft.Call}</span>;
+        var Timer = <span style={{flex: 10, fontSize: "7vh"}} className={styles.timer}><span style={{marginRight: "2vh"}}>{aircraft.Call}</span></span>;
         if (aircraft.Call == "00" && !aircraft.CallState)
-            Timer = <span style={{flex: 10, fontSize: "7vh", color: "#708090", backgroundColor: "#D3D3D3"}} className={styles.box}>{aircraft.Call}</span>;
+            Timer = <span style={{flex: 10, fontSize: "7vh", color: "#708090", backgroundColor: "#D3D3D3"}} className={styles.timer}><span style={{marginRight: "2vh"}}>{aircraft.Call}</span></span>;
         return (
             <div className={styles.container}>
                 <span style={{flex: 40, fontSize: "7vh"}} className={styles.box}>
