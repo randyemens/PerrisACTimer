@@ -29,15 +29,15 @@ class Aircraft extends Component {
     else if (aircraft == "header") {
         return (
             <div className={styles.header}>
-                <span style={{flex: 40}} className={styles.headerBox}>
+                <span style={{flex: 45}} className={styles.headerBox}>
                     <div className={styles.nameContainer}>
                         <span>Name</span>
                         <span style={{paddingRight: "1vh"}}>Load</span>
                     </div>
                 </span>
                 <span style={{flex: 20}} className={styles.headerBox}>Load Zone</span>
-                <span style={{flex: 18}} className={styles.headerBox}>Call</span>
-                <span style={{flex: 7}} className={styles.headerBox}>Timer</span>
+                <span style={{flex: 12}} className={styles.headerBox}></span>
+                <span style={{flex: 7}} className={styles.headerBox}>Call</span>
             </div>
         )
     }
@@ -52,14 +52,16 @@ class Aircraft extends Component {
         else if (aircraft.LoadingAt == "Military") {
             loadZoneImg.push(<img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={Military} alt="Military" />);
         }
-        var Call = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#7CFC00"}} className={styles.box}>Now</span>;
-        if (parseInt(aircraft.Call) > 10)
-            Call = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "white"}} className={styles.box}></span>;
-        else if (parseInt(aircraft.Call) > 5)
-            Call = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#E01C0B"}} className={styles.box}>10 Mins</span>;
-        else if (parseInt(aircraft.Call) > 0)
-        Call = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#FFFF00"}} className={styles.box}>5 Mins</span>;
-        var Timer = aircraft.Call;
+        var CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "white"}} className={styles.box}></span>;
+        if (aircraft.CallState == "10 Mins")
+        CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#E01C0B"}} className={styles.box}>{aircraft.CallState}</span>;
+        else if (aircraft.CallState == "5 Mins")
+            CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#FFFF00"}} className={styles.box}>{aircraft.CallState}</span>;
+        else if (aircraft.CallState == "Now")
+            CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#7CFC00"}} className={styles.box}>{aircraft.CallState}</span>;
+        var Timer = <span style={{flex: 7, fontSize: "7vh"}} className={styles.box}>{aircraft.Call}</span>;
+        if (aircraft.Call == "00" && !aircraft.CallState)
+            Timer = <span style={{flex: 7, fontSize: "7vh", color: "#708090", backgroundColor: "#D3D3D3"}} className={styles.box}>{aircraft.Call}</span>;
         return (
             <div className={styles.container}>
                 <span style={{flex: 45, fontSize: "7vh"}} className={styles.box}>
@@ -71,8 +73,8 @@ class Aircraft extends Component {
                 <span style={{flex: 20}} className={styles.box}>
                     {loadZoneImg}   
                 </span>
-                {Call}
-                <span style={{flex: 7, fontSize: "7vh"}} className={styles.box}>{Timer}</span>
+                {CallState}
+                {Timer}
             </div>
         );
     }
