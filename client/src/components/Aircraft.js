@@ -52,17 +52,17 @@ class Aircraft extends Component {
         else if (aircraft.LoadingAt == "Military") {
             loadZoneImg.push(<img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={Military} alt="Military" />);
         }
-        var Call = "Now";
-        if (parseInt(aircraft.Call) > 0)
-            Call = "5 Mins";
+        var Call = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#7CFC00"}} className={styles.box}>Now</span>;
+        if (parseInt(aircraft.Call) > 10)
+            Call = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "white"}} className={styles.box}></span>;
         else if (parseInt(aircraft.Call) > 5)
-            Call = "10 Mins";
-        else if (parseInt(aircraft.Call) > 10)
-            Call = "";
+            Call = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#E01C0B"}} className={styles.box}>10 Mins</span>;
+        else if (parseInt(aircraft.Call) > 0)
+        Call = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#FFFF00"}} className={styles.box}>5 Mins</span>;
         var Timer = aircraft.Call;
         return (
             <div className={styles.container}>
-                <span style={{flex: 40}} className={styles.box}>
+                <span style={{flex: 45, fontSize: "7vh"}} className={styles.box}>
                     <div className={styles.nameContainer}>
                         <span>{aircraft.Name}</span>
                         <span>{aircraft.LoadNumber}</span>
@@ -71,8 +71,8 @@ class Aircraft extends Component {
                 <span style={{flex: 20}} className={styles.box}>
                     {loadZoneImg}   
                 </span>
-                <span style={{flex: 18}} className={styles.box}>{Call}</span>
-                <span style={{flex: 7}} className={styles.box}>{Timer}</span>
+                {Call}
+                <span style={{flex: 7, fontSize: "7vh"}} className={styles.box}>{Timer}</span>
             </div>
         );
     }

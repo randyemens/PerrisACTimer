@@ -19,7 +19,7 @@ class App extends Component {
 
   componentDidMount () {
     axios
-    .get("/flight-info", {})
+    .get("/api/flight-info", {})
     .then(res => {
         this.setState({flightInfo: res.data});
     })
@@ -58,8 +58,13 @@ class App extends Component {
       else if (this.state.flightInfo.ManifestPost.WeatherState == "Weather Hold") {
         weather = <span className="WeatherContainer"><img style={{maxWidth: "100%", maxHeight: "100%"}} src={WeatherHold} alt="WeatherHold" /></span>
       }
-      else if (this.state.flightInfo.ManifestPost.WeatherState == "Non-licensed Hold") {
-        weather = <span className="WeatherContainer">Non-licensed Hold</span>
+      else if (this.state.flightInfo.ManifestPost.WeatherState == "Non-Licensed Jumper Wind Hold") {
+        weather = <span className="WeatherContainer">
+              <div>Uppers <span style={{color: "#7CFC00"}}>{this.state.flightInfo.ManifestPost.UpperReport}</span></div>
+              <div>Jump run <span style={{color: "#7CFC00"}}>{this.state.flightInfo.ManifestPost.JumpRunReport}</span></div>
+              <div><span style={{color: "#7CFC00"}}>{this.state.flightInfo.ManifestPost.SeparationReport}</span> seconds between groups</div>
+              <div><span style={{color: "#E01C0B"}}>Non-Licensed Jumper Wind Hold</span></div>
+            </span>
       }
       
       if (this.state.flightInfo.ManifestPost.Timestamp != null) {
