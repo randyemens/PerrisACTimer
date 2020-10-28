@@ -31,8 +31,8 @@ class Aircraft extends Component {
             <div className={styles.header}>
                 <span style={{flex: 40}} className={styles.headerBox}>
                     <div className={styles.nameContainer}>
-                        <span>Name</span>
-                        <span style={{paddingRight: "1vh"}}>Aircraft</span>
+                        <span>Aircraft</span>
+                        <span style={{paddingRight: "1vh"}}>Load</span>
                     </div>
                 </span>
                 <span style={{flex: 20}} className={styles.headerBox}>Loading Area</span>
