@@ -42,26 +42,26 @@ class Aircraft extends Component {
         )
     }
     else {
-        var loadZoneImg = [];
+        var loadZoneImg = <span style={{flex: 20, backgroundColor: "#00000000"}} className={styles.box}></span>;
         if (aircraft.LoadingAt == "North") {
-            loadZoneImg.push(<img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={North} alt="North" />);
+            loadZoneImg = <span style={{flex: 20, backgroundColor: "#FFFFFF"}} className={styles.box}><img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={North} alt="North" /></span>;
         }
         else if (aircraft.LoadingAt == "South") {
-            loadZoneImg.push(<img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={South} alt="South" />);
+            loadZoneImg = <span style={{flex: 20, backgroundColor: "#FFFFFF"}} className={styles.box}><img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={South} alt="South" /></span>;
         }
         else if (aircraft.LoadingAt == "Military") {
-            loadZoneImg.push(<img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={Military} alt="Military" />);
+            loadZoneImg = <span style={{flex: 20, backgroundColor: "#FFFFFF"}} className={styles.box}><img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={Military} alt="Military" /></span>;
         }
-        var CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "white"}} className={styles.box}></span>;
+        var CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#00000000"}} className={styles.box}></span>;
         if (aircraft.CallState == "10 Min")
         CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#E01C0B"}} className={styles.box}>{aircraft.CallState}</span>;
         else if (aircraft.CallState == "5 Min")
             CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#FFFF00"}} className={styles.box}>{aircraft.CallState}</span>;
         else if (aircraft.CallState == "Now")
             CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#7CFC00"}} className={styles.box}>{aircraft.CallState}</span>;
-        var Timer = <span style={{flex: 10, fontSize: "7vh"}} className={styles.timer}><span style={{marginRight: "2vh"}}>{aircraft.Call}</span></span>;
+        var Timer = <span style={{flex: 10, fontSize: "10vh"}} className={styles.timer}><span style={{marginBottom: "1vh", marginRight: "1.3vh"}}>{aircraft.Call}</span></span>;
         if (aircraft.Call == "00" && !aircraft.CallState)
-            Timer = <span style={{flex: 10, fontSize: "7vh", color: "#708090", backgroundColor: "#D3D3D3"}} className={styles.timer}><span style={{marginRight: "2vh"}}>{aircraft.Call}</span></span>;
+            Timer = <span style={{flex: 10, fontSize: "10vh", color: "#708090", backgroundColor: "#D3D3D3", border: ".75vh solid #708090"}} className={styles.timer}><span style={{marginBottom: "1vh", marginRight: "1.3vh"}}>{aircraft.Call}</span></span>;
         return (
             <div className={styles.container}>
                 <span style={{flex: 40, fontSize: "7vh"}} className={styles.box}>
@@ -70,9 +70,7 @@ class Aircraft extends Component {
                         <span>{aircraft.LoadNumber}</span>
                     </div>
                 </span>
-                <span style={{flex: 20}} className={styles.box}>
-                    {loadZoneImg}   
-                </span>
+                {loadZoneImg}
                 {CallState}
                 {Timer}
             </div>
