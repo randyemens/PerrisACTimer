@@ -42,32 +42,60 @@ class Aircraft extends Component {
         )
     }
     else {
-        var loadZoneImg = <span style={{flex: 20, backgroundColor: "#00000000"}} className={styles.box}></span>;
+        var loadZoneImg = <span className={`${styles.box} ${styles.loadzone} ${styles.clear}`}></span>;
         if (aircraft.LoadingAt == "North") {
-            loadZoneImg = <span style={{flex: 20, backgroundColor: "#FFFFFF"}} className={styles.box}><img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={North} alt="North" /></span>;
+            loadZoneImg = <span className={`${styles.box} ${styles.loadzone} ${styles.white}`}><img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={North} alt="North" /></span>;
         }
         else if (aircraft.LoadingAt == "South") {
-            loadZoneImg = <span style={{flex: 20, backgroundColor: "#FFFFFF"}} className={styles.box}><img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={South} alt="South" /></span>;
+            loadZoneImg = <span className={`${styles.box} ${styles.loadzone} ${styles.white}`}><img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={South} alt="South" /></span>;
         }
         else if (aircraft.LoadingAt == "Military") {
-            loadZoneImg = <span style={{flex: 20, backgroundColor: "#FFFFFF"}} className={styles.box}><img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={Military} alt="Military" /></span>;
+            loadZoneImg = <span className={`${styles.box} ${styles.loadzone} ${styles.white}`}><img key={aircraft.Name} style={{maxWidth: "100%", maxHeight: "100%"}} src={Military} alt="Military" /></span>;
         }
-        var CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#00000000"}} className={styles.box}></span>;
+
+
+        var CallState = <span className={`${styles.box} ${styles.callstatecontainer} ${styles.clear}`}></span>;
         if (aircraft.CallState == "10 Min")
-        CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#E01C0B"}} className={styles.box}>{aircraft.CallState}</span>;
+            CallState = <span className={`${styles.box} ${styles.callstatecontainer} ${styles.red}`}>
+                <svg viewBox="0 0 170 100" className={styles.callstate}>
+                    <text textAnchor="middle" x="85" y="67">{aircraft.CallState}</text>
+                </svg>
+            </span>;
         else if (aircraft.CallState == "5 Min")
-            CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#FFFF00"}} className={styles.box}>{aircraft.CallState}</span>;
+            CallState = <span className={`${styles.box} ${styles.callstatecontainer} ${styles.yellow}`}>
+                <svg viewBox="0 0 170 100" className={styles.callstate}>
+                    <text textAnchor="middle" x="85" y="67">{aircraft.CallState}</text>
+                </svg>
+            </span>;
         else if (aircraft.CallState == "Now")
-            CallState = <span style={{flex: 12, fontSize: "4vh", backgroundColor: "#7CFC00"}} className={styles.box}>{aircraft.CallState}</span>;
-        var Timer = <span style={{flex: 10, fontSize: "10vh"}} className={styles.timer}><span style={{marginBottom: "1vh", marginRight: "1.3vh"}}>{aircraft.Call}</span></span>;
+            CallState = <span className={`${styles.box} ${styles.callstatecontainer} ${styles.green}`}>
+                <svg viewBox="0 0 170 100" className={styles.callstate}>
+                    <text textAnchor="middle" x="85" y="67">{aircraft.CallState}</text>
+                </svg>
+            </span>;
+        
+        
+        var Timer = <span className={styles.timer}>
+                <svg viewBox="0 0 145 100" className={styles.call}>
+                    <text textAnchor="end" x="128.5" y="84">{aircraft.Call}</text>
+                </svg>
+            </span>;
         if (aircraft.Call == "00" && !aircraft.CallState)
-            Timer = <span style={{flex: 10, fontSize: "10vh", color: "#708090", backgroundColor: "#D3D3D3", border: ".75vh solid #708090"}} className={styles.timer}><span style={{marginBottom: "1vh", marginRight: "1.3vh"}}>{aircraft.Call}</span></span>;
-        return (
+            Timer = <span className={`${styles.timer} ${styles.zerotimer}`}>
+                <svg viewBox="0 0 145 100" className={styles.call}>
+                    <text className={styles.graytext} textAnchor="end" x="128.5" y="84">{aircraft.Call}</text>
+                </svg>
+            </span>;
+        
+        
+            return (
             <div className={styles.container}>
-                <span style={{flex: 40, fontSize: "7vh"}} className={styles.box}>
+                <span style={{flex: 40, fontSize: "6vmin"}} className={styles.box}>
                     <div className={styles.nameContainer}>
-                        <span>{aircraft.Name}</span>
-                        <span>{aircraft.LoadNumber}</span>
+                        <svg viewBox="0 0 100 10" className={styles.name}>
+                            <text textAnchor="left" x="2" y="9.5">{aircraft.Name}</text>
+                            <text textAnchor="end" x="98" y="9.5">{aircraft.LoadNumber}</text>
+                        </svg>
                     </div>
                 </span>
                 {loadZoneImg}

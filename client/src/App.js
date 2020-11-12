@@ -79,7 +79,7 @@ class App extends Component {
             hr -= 12;
             ampm = "PM";
 }
-        time = <span className="TimeContainer"><span><span style={{fontSize: "10vh"}}>{hr}:{min}</span><span style={{fontSize: "4vh", color: "#4070EF"}}> {ampm}</span></span></span>;
+        time = <span className="TimeContainer"><span><span style={{fontSize: "10vmin"}}>{hr}:{min}</span><span style={{fontSize: "4vmin", color: "#4070EF"}}> {ampm}</span></span></span>;
       }
     }
     return (
