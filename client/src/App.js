@@ -7,7 +7,7 @@ import WeatherHold from './img/WeatherHoldRight.png';
 import WindHold from './img/WindHoldRight.png';
 
 const ENDPOINT = "http://localhost:5000";
-const socket = io();
+const socket = io(ENDPOINT);
 
 class App extends Component {
   constructor(props) {
