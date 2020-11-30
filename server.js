@@ -5,6 +5,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const bodyParser = require('body-parser');
 require('body-parser-xml')(bodyParser);
+fs = require('fs');
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(bodyParser.xml({
@@ -22,12 +23,22 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 
   app.get('*', (req, res) => {
+    
     res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   });
 }
 
 app.get('/api/flight-info', function(req, res, next) {
-  res.send(testObject);
+  fs.readFile('timer.json', (err, data) => {
+    if (err) {
+      console.log(err);
+      res.send({});
+    }
+    else {
+      let timerInfo = JSON.parse(data);
+      res.send(timerInfo);
+    }
+  });
 });
 app.post('/api/receive-xml', function(req, res, next) {
   testObject = req.body;
@@ -38,6 +49,10 @@ app.post('/api/receive-xml', function(req, res, next) {
       makeArray.push(testObject.ManifestPost.Aircraft.LoadTimer);
       testObject.ManifestPost.Aircraft.LoadTimer = makeArray;
   }
+  let data = JSON.stringify(testObject);
+  fs.writeFile('timer.json', data, (err) => {
+    if (err) throw err;
+  })
   io.emit('update-flights', testObject);
   res.send(testObject);
 });

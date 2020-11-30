@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.c799a16c.chunk.css",
+    "main.js": "/static/js/main.23234a12.chunk.js",
+    "main.js.map": "/static/js/main.23234a12.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.09b85ec0.js",
+    "runtime-main.js.map": "/static/js/runtime-main.09b85ec0.js.map",
+    "static/js/2.e219fe67.chunk.js": "/static/js/2.e219fe67.chunk.js",
+    "static/js/2.e219fe67.chunk.js.map": "/static/js/2.e219fe67.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.b43b3b2cd48ea2ff14095865c8e6a0ed.js": "/precache-manifest.b43b3b2cd48ea2ff14095865c8e6a0ed.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.c799a16c.chunk.css.map": "/static/css/main.c799a16c.chunk.css.map",
+    "static/js/2.e219fe67.chunk.js.LICENSE.txt": "/static/js/2.e219fe67.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/static/media/SkydivePerris.f8b63093.png",
+    "static/media/WeatherHoldRight.png": "/static/media/WeatherHoldRight.a66f3a6c.png",
+    "static/media/WindHoldRight.png": "/static/media/WindHoldRight.1979a41c.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.09b85ec0.js",
+    "static/js/2.e219fe67.chunk.js",
+    "static/css/main.c799a16c.chunk.css",
+    "static/js/main.23234a12.chunk.js"
+  ]
+}
